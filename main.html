@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Itinerary Planner</h1>
+        <nav>
+            <a href="#planner">Planner</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#map">Map</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="planner">
+            <h2>Plan Your Journey</h2>
+            <form>
+                <label for="trip-name">Trip Name:</label>
+                <input type="text" id="trip-name" placeholder="Enter trip name">
+                
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                
+                <h3>Add Destinations</h3>
+                <input type="text" id="destination" placeholder="Enter destination">
+                <input type="date" id="dest-date" placeholder="Date">
+                <input type="time" id="time">
+                <button type="button" onclick="addDestination()">Add</button>
+            </form>
+            
+            <div id="destinations">
+                <h3>Trip Details:</h3>
+                <ul id="destination-list"></ul>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2>Destinations:</h2>
+            <div id="timeline-view"></div>
+        </section>
+
+        <section id="map">
+            <h2>Route Map</h2>
+            <div class="map-placeholder">
+                <p>Map visualization will appear here</p>
+            </div>
+        </section>
+        
+        <button onclick="window.print()" class="print-btn">Print Itinerary</button>
+        
+        <div class="rating-box">
+            <h3>Rate this Travel Planner</h3>
+            <div class="stars">
+                <span onclick="rate(1)" style="cursor:pointer;">★</span>
+                <span onclick="rate(2)" style="cursor:pointer;">★</span>
+                <span onclick="rate(3)" style="cursor:pointer;">★</span>
+                <span onclick="rate(4)" style="cursor:pointer;">★</span>
+                <span onclick="rate(5)" style="cursor:pointer;">★</span>
+            </div>
+            <p id="rating-message">Click a star to rate</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script> 
+</body>
+</html>
