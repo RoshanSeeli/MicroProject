@@ -3,59 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Itinerary Planner</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Travel Planner - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c5aa0, #667eea);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #2c5aa0;
+        }
+        
+        button {
+            width: 100%;
+            background: #2c5aa0;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: #1e3d72;
+        }
+        
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .demo-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f8ff;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Travel Itinerary Planner</h1>
-        <nav>
-            <a href="#planner">Planner</a>
-            <a href="#timeline">Timeline</a>
-            <a href="#map">Map</a>
-        </nav>
-    </header>
-
-    <main>
-        <section id="planner">
-            <h2>Plan Your Journey</h2>
-            <form>
-                <label for="trip-name">Trip Name:</label>
-                <input type="text" id="trip-name" placeholder="Enter trip name">
-                
-                <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date">
-                
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date">
-                
-                <h3>Add Destinations</h3>
-                <input type="text" id="destination" placeholder="Enter destination">
-                <input type="date" id="dest-date" placeholder="Date">
-                <input type="time" id="time">
-                <button type="button" onclick="addDestination()">Add</button>
-            </form>
+    <div class="login-container">
+        <h1>Travel Planner</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
             
-            <div id="destinations">
-                <h3>Trip Details:</h3>
-                <ul id="destination-list"></ul>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
             </div>
-        </section>
+            
+            <button type="submit">Login</button>
+            <div id="error-message" class="error"></div>
+        </form>
+        
+        <div class="demo-info">
+            <strong>Demo Credentials:</strong><br>
+            Username: admin<br>
+            Password: 123456
+        </div>
+        
+        <div style="margin-top: 15px; font-size: 14px;">
+            Don't have an account? <a href="signup.html" style="color: #2c5aa0; text-decoration: none;">Sign up here</a>
+        </div>
+    </div>
 
-        <section id="timeline">
-            <h2>Destinations:</h2>
-            <div id="timeline-view"></div>
-        </section>
-
-        <section id="map">
-            <h2>Route Map</h2>
-            <div class="map-placeholder">
-                <p>Map visualization will appear here</p>
-            </div>
-        </section>
-    </main>
-
-<!--    future implemenration
-<script src="script.js"></script>-->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error-message');
+            
+            // Simple validation
+            if (username === 'admin' && password === '123456') {
+                // Redirect to main page
+                window.location.href = 'main.html';
+            } else {
+                errorDiv.textContent = 'Invalid username or password!';
+            }
+        });
+    </script>
 </body>
 </html>
